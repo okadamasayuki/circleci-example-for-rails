@@ -2,7 +2,7 @@ version: 2.1
 jobs:
  build:
    docker:
-   - image: circleci/ruby:2.5.1-node-browsers
+   - image: circleci/ruby:2.4.1-node-browsers
      environment:
        RAILS_ENV: test
        DB_HOST: 127.0.0.1
@@ -15,6 +15,7 @@ jobs:
    working_directory: ~/circleci-example-for-rails
    steps:
    - checkout
+   - run: gem update bundler
    - restore_cache:
        keys:
        - v1-dependencies-{{ checksum "Gemfile.lock" }}

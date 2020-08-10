@@ -16,6 +16,7 @@ default: &default
   username: root
   password:
   host: <%= ENV['DB_HOST'] %>
+  port: 3306
   # host: <%= ENV.fetch('DATABASE_HOST') { 'db' } %>>
 
 development:

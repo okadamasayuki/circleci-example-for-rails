@@ -17,6 +17,8 @@ jobs:
    working_directory: ~/circleci-example-for-rails
    steps:
    - checkout
+   - setup_remote_docker: 
+       docker_layer_caching: false 
    - run: gem update bundler
    - restore_cache:
        keys:

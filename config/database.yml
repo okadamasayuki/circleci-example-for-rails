@@ -25,14 +25,10 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: 'root'
-  port: 3306
-  host: '127.0.0.1'
+  <<: *default
   database: circleci-example-for-rails_test
- 
+  host:localhost
+
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.

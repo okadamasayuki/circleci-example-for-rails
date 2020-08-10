@@ -1,8 +1,8 @@
-version: 2.1
+version: 2
 jobs:
  build:
    docker:
-   - image: circleci/ruby:2.6.1-node-browsers
+   - image: circleci/ruby:2.5.3-node-browsers
      environment:
        RAILS_ENV: test
        DB_HOST: 127.0.0.1
@@ -35,6 +35,8 @@ jobs:
        paths:
        - ./vendor/bundle
        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+
+   - run: mv ./config/database.yml.ci ./config/database.yml
 
    # Database setup
    - run: bundle exec rake db:create

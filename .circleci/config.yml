@@ -15,8 +15,6 @@ jobs:
    working_directory: ~/circleci-example-for-rails
    steps:
    - checkout
-   - setup_remote_docker:
-       docker_layer_caching: false
    - run: gem update bundler
    - restore_cache:
        keys:
@@ -27,7 +25,6 @@ jobs:
        command: |
          gem update --system
          gem install bundler
-
    - run:
        name: install dependencies
        command: |
@@ -40,6 +37,9 @@ jobs:
    - run:
        name: Wait for DB
        command: dockerize -wait tcp://127.0.0.1:3306 -timeout 120s
+   - run:
+       name: start MySQL
+       command: mysql.server start
 
    # Database setup
    - run: bundle exec rake db:create

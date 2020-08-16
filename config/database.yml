@@ -26,13 +26,8 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  username: 'root'
-  port: 3306
-  host: '127.0.0.1'
   database: cirlcleci-example-for-rails_test
+   host: localhost
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
